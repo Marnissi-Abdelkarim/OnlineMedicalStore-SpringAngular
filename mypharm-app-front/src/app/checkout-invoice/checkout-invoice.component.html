@@ -1,0 +1,248 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="page-content container">
+  <div class=" text-blue-d2 mt-4">
+    <h1 class="page-title text-secondary-d1">
+      Order
+      <small class="page-info" style="color: #236632">
+        <i class="fa fa-angle-double-right text-80"></i>
+        ID: #{{orderService.order.id}}
+      </small>
+    </h1>
+
+    <!--<div class="page-tools">
+      <div class="action-buttons">
+        <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="Print">
+          <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+          Print
+        </a>
+        <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
+          <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
+          Export
+        </a>
+      </div>
+    </div>-->
+  </div>
+
+  <div class="container px-0">
+    <div class="row ">
+      <div class="col-12 col-lg-12">
+
+        <!-- .row -->
+
+        <hr class="row brc-default-l1 mx-n1 mb-4" />
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+              Customer
+            </div>
+            <div>
+              <span class="text-sm text-grey-m2 align-middle">Name :</span>
+              <span class="text-600 text-110 text-blue align-middle">{{orderService.order.client.firstname}} {{orderService.order.client.lastname}}</span>
+            </div>
+            <div>
+              <span class="text-sm text-grey-m2 align-middle">Address :</span>
+              <span class="text-600 text-110 text-blue align-middle">{{orderService.order.client.address}}</span>
+            </div>
+            <div>
+              <span class="text-sm text-grey-m2 align-middle">Phone Number :</span>
+              <span class="text-600 text-110 text-blue align-middle">{{orderService.order.client.phoneNumber}}</span>
+            </div>
+            <div>
+              <span class="text-sm text-grey-m2 align-middle">Email :</span>
+              <span class="text-600 text-110 text-blue align-middle">{{orderService.order.client.email}}</span>
+            </div>
+
+
+          </div>
+          <!-- /.col -->
+
+          <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+            <hr class="d-sm-none" />
+            <div class="text-grey-m2">
+              <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                Order
+              </div>
+
+              <div class="my-2"><!--<i class="fa fa-circle texty text-xs mr-1"></i>--> <span class="text-600 text-90">ID: </span> #{{orderService.order.id}}</div>
+
+              <div class="my-2"><!--<i class="fa fa-circle texty text-xs mr-1"></i> --><span class="text-600 text-90">Date: </span>{{orderService.order.date}}</div>
+
+              <div class="my-2"><!--<i class="fa fa-circle texty text-xs mr-1"></i>--> <span class="text-600 text-90">Status: </span> <span class="badge badge-warning badge-pill px-25" *ngIf="!orderService.order.isPayementConfirmed">Unpaid</span><span class="badge badge-success badge-pill px-25" *ngIf="orderService.order.isPayementConfirmed">Paid</span></div>
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+
+        <div class="mt-4">
+          <!--<div class="row text-600 text-white bgc-default-tp1 py-25">
+            <div class="d-none d-sm-block col-1">#</div>
+            <div class="col-9 col-sm-5">Designation</div>
+            <div class="d-none d-sm-block col-4 col-sm-2">Quantity</div>
+            <div class="d-none d-sm-block col-sm-2">Unit Price</div>
+            <div class="col-2">Amount</div>
+          </div>
+
+          <div class="text-95 text-secondary-d3">
+            <div class="row mb-2 mb-sm-0 py-25" *ngFor="let p of orderService.order.products">
+              <div class="d-none d-sm-block col-1">1</div>
+              <div class="col-9 col-sm-5">Domain registration</div>
+              <div class="d-none d-sm-block col-2">2</div>
+              <div class="d-none d-sm-block col-2 text-95">$10</div>
+              <div class="col-2 text-secondary-d2">$20</div>
+            </div>
+
+
+          </div>
+
+          <div class="row border-b-2 brc-default-l2"></div>-->  <!--hadi-->
+
+          <!-- or use a table instead -->
+
+  <div class="table-responsive">
+      <table class="table table-striped table-borderless border-0 border-b-2 brc-default-l1">
+          <thead class="bg-none bgc-default-tp1">
+              <tr class="text-white">
+                  <th class="opacity-2">#</th>
+                  <th>Designation</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Amount</th>
+              </tr>
+          </thead>
+
+          <tbody class="text-95 text-secondary-d3">
+              <tr></tr>
+              <tr *ngFor="let p of orderService.order.products;let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{p.name}}</td>
+                  <td>{{p.quantity}}</td>
+                  <td class="text-95">${{p.price}}</td>
+                  <td class="text-secondary-d2">${{p.quantity*p.price}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+<hr>
+          <div class="row mt-3" style="justify-content: end">
+
+
+            <div class="col-12 col-sm-4 text-grey text-90 order-first order-sm-last " >
+              <!--<div class="row my-2">
+                <div class="col-7 text-right">
+                  SubTotal
+                </div>
+                <div class="col-5">
+                  <span class="text-120 text-secondary-d1">$2,250</span>
+                </div>
+              </div>
+
+              <div class="row my-2">
+                <div class="col-7 text-right">
+                  Tax (10%)
+                </div>
+                <div class="col-5">
+                  <span class="text-110 text-secondary-d1">$225</span>
+                </div>
+              </div>
+
+              <div class="row my-2 align-items-center bgc-primary-l3 p-2">
+                <div class="col-7 text-right">
+                  Total Amount
+                </div>
+                <div class="col-5">
+                  <span class="text-150 text-success-d3 opacity-2">$2,475</span>
+                </div>
+              </div>-->
+              <ul class="summary-prices list-unstyled mb-4">
+                <li class="d-flex justify-content-between">
+                  <span >Subtotal:</span>
+                  <span class="h5">${{orderService.getTotal()}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                  <span >Shipping:</span>
+                  <span class="h5">Free</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                  <span style="font-weight: bold">Total</span>
+                  <span class="h5">${{orderService.getTotal()}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <div style="float:right">
+            <!--<span class="text-secondary-d1 text-105">Thank you for your business</span>-->
+            <button class="btn btny "  (click)="onOrder()" *ngIf="!orderService.order.id">Confirm Order</button>
+            <button class="btn btny"  (click)="onConfirmPayment()" *ngIf="orderService.order.id && !orderService.order.isPayementConfirmed">Confirm Order Payment</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+<div class="panel " >
+  <div class="panel-heading">Récap de votre commande</div>
+  <div class="panel-body">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label>Nom du Client :</label>
+        <label>{{orderService.order.client.firstname}} {{orderService.order.client.lastname}}</label>
+      </div>
+      <div class="form-group">
+        <label>Adresse Client :</label>
+        <label>{{orderService.order.client.address}}</label>
+      </div>
+      <div class="form-group">
+        <label>Tel Client :</label>
+        <label>{{orderService.order.client.phoneNumber}}</label>
+      </div>
+      <div class="form-group">
+        <label>Email :</label>
+        <label>{{orderService.order.client.email}}</label>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <label>Order ID :</label>
+        <label>{{orderService.order.id}}</label>
+      </div>
+      <div class="form-group">
+        <label>Order Date :</label>
+        <label>{{orderService.order.date}}</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Désignation</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+      </tr>
+      <tr *ngFor="let p of orderService.order.products">
+        <td>{{p.id}}</td><td>{{p.name}}</td>
+        <td>{{p.quantity|number:'0.2'}}</td>
+        <td>{{p.price|number:'0.2'}}</td>
+      </tr>
+      <tr>
+        <td colspan="3">Total:</td>
+        <td>{{orderService.getTotal()|number:'0.2'}}</td>
+      </tr>
+    </table>
+    <button class="btn btn-success" (click)="onOrder()" *ngIf="!orderService.order.id">Confirmer la commande</button>
+    <button class="btn btn-success" (click)="onPayOrder()" *ngIf="orderService.order.id">Pay Order</button>
+  </div>
+</div>
+-->

@@ -1,0 +1,257 @@
+<!-- <div class="pre-loader">
+  <div class="pre-loader-box">
+    <div class="loader-logo"><img src="vendors/images/deskapp-logo.svg" alt=""></div>
+    <div class='loader-progress' id="progress_div">
+      <div class='bar' id='bar1'></div>
+    </div>
+    <div class='percent' id='percent1'>0%</div>
+    <div class="loading-text">
+      Loading...
+    </div>
+  </div>
+</div> -->
+
+<div class="header">
+  <!--<div class="header-left">
+    <div class="menu-icon dw dw-menu"></div>
+    <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
+    <div class="header-search">
+      <form>
+        <div class="form-group mb-0">
+          <i class="dw dw-search2 search-icon"></i>
+          <input type="text" class="form-control search-input" placeholder="Search Here">
+
+        </div>
+      </form>
+    </div>
+  </div>-->
+  <div class="header-right" style="width: 97%;">
+
+
+    <div class="user-info-dropdown">
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<span class="user-icon">
+							<img src="assets/vendors/images/adminlogo.png" alt="">
+						</span>
+          <span class="user-name">Hello, Admin</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+          <!--<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+          <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+          <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>-->
+          <a class="dropdown-item clickable" (click)="onLogout()"><i class="dw dw-logout"></i> Log Out</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="left-side-bar">
+  <div class="brand-logo" style="border-bottom: 1px solid rgb(255,255,255,0.3)">
+    <a routerLink="/admin-home" style="padding-left: 55px;">
+      <!--<img src="assets/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+      <img src="assets/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">-->
+      <p style="color: #00eccf;font-weight: bold;font-size: xx-large">My</p><p style="color: whitesmoke;font-weight: bold;font-size: xx-large">Pharm</p>
+    </a>
+    <div class="close-sidebar" data-toggle="left-sidebar-close">
+      <i class="ion-close-round"></i>
+    </div>
+  </div>
+  <div class="menu-block customscroll">
+    <div class="sidebar-menu">
+      <ul id="accordion-menu">
+
+        <li >
+          <a routerLink="/admin-home"  class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+          </a>
+        </li>
+
+        <li >
+          <a routerLink="/admin-home"  class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-user2"></span><span class="mtext">Users</span>
+          </a>
+        </li>
+
+        <li >
+          <a routerLink="/admin-home"  class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-price-tag"></span><span class="mtext">Products</span>
+          </a>
+        </li>
+
+        <li >
+          <a routerLink="/admin-home"  class="dropdown-toggle no-arrow">
+            <i class="micon dw dw-copy"></i><span class="mtext">Categories</span>
+          </a>
+        </li>
+
+        <li >
+          <a routerLink="/admin-home"  class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-edit"></span><span class="mtext">Orders</span>
+          </a>
+        </li>
+        <li>
+          <div class="dropdown-divider"></div>
+        </li>
+        <li >
+          <a (click)="onLogout()"  class="dropdown-toggle no-arrow" style="cursor: pointer">
+            <span class="micon dw dw-logout1"></span><span class="mtext">Log Out</span>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+  <div class="pd-ltr-20">
+    <!--<div class="card-box pd-20 height-100-p mb-30">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <img src="assets/vendors/images/banner-img.png" alt="">
+        </div>
+        <div class="col-md-8">
+          <h4 class="font-20 weight-500 mb-10 text-capitalize">
+            Welcome back <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
+          </h4>
+          <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure fugiat, veniam non quaerat mollitia animi error corporis.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="row">
+      <div class="col-xl-3 mb-30">
+        <div class="card-box height-100-p widget-style1">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="progress-data">
+              <i class="icon-copy ion-person-stalker" style="color:#0c5460;font-size: xxx-large;padding-left: 40px;"></i>
+            </div>
+
+            <div class="widget-data" style="padding-left: 40px">
+              <div class="h4 mb-0" style="font-size: 25px">{{usersnumber}}</div>
+              <div class="weight-600 font-14" style="font-size: 18px">Users</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 mb-30">
+        <div class="card-box height-100-p widget-style1">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="progress-data">
+              <i class="icon-copy ion-ios-pricetags" style="color:#00eccf;font-size: xxx-large;padding-left: 40px;"></i>
+
+            </div>
+            <div class="widget-data" style="padding-left: 40px">
+              <div class="h4 mb-0" style="font-size: 25px">{{productsnumber}}</div>
+              <div class="weight-600 font-14" style="font-size: 18px">Products</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 mb-30">
+        <div class="card-box height-100-p widget-style1">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="progress-data">
+              <i class="icon-copy ion-ios-photos" style="color:#d11372;font-size: xxx-large;padding-left: 40px;"></i>
+
+            </div>
+            <div class="widget-data" style="padding-left: 40px">
+              <div class="h4 mb-0" style="font-size: 25px">{{categoriesnumber}}</div>
+              <div class="weight-600 font-14" style="font-size: 18px">Categories</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 mb-30">
+        <div class="card-box height-100-p widget-style1">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="progress-data">
+              <i class="icon-copy ion-ios-compose" style="color:#0051bd;font-size: xxx-large;padding-left: 40px;"></i>
+            </div>
+            <div class="widget-data" style="padding-left: 40px">
+              <div class="h4 mb-0" style="font-size: 25px" >{{ordersnumber}}</div>
+              <div class="weight-600 font-14" style="font-size: 18px">Orders</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="row">
+      <div class="col-xl-8 mb-30">
+        <div class="card-box height-100-p pd-20">
+          <h2 class="h4 mb-20">Activity</h2>
+          <div id="chart5"></div>
+        </div>
+      </div>
+      <div class="col-xl-4 mb-30">
+        <div class="card-box height-100-p pd-20">
+          <h2 class="h4 mb-20">Lead Target</h2>
+          <div id="chart6"></div>
+        </div>
+      </div>
+    </div>-->
+    <div class="card-box mb-30">
+      <h2 class="h4 pd-20">Best Selling Products</h2>
+      <table class="data-table table nowrap" *ngIf="bestproducts">
+        <thead>
+        <tr>
+          <th class="table-plus datatable-nosort">Product</th>
+          <th>Name</th>
+
+          <th>Price</th>
+
+          <th class="datatable-nosort">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p1 of bestproducts.slice(0, 4)">
+          <td class="table-plus">
+            <a routerLink="/product-single/{{p1.id}}"><img src="{{this.catalService.host+'/photoProduct/'+p1.id}}" width="70" height="70" alt=""></a>
+          </td>
+          <td>
+            <h5 class="font-16">{{p1.name}}</h5>
+
+          </td>
+          <td>${{p1.currentprice|number: '0.2' //noinspection UnresolvedVariable}}</td>
+
+
+
+          <td>
+            <div class="dropdown">
+              <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                <i class="dw dw-more"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="footer-wrap pd-20 mb-20 card-box">
+     <b>MYPHARM</b> ADMIN TEMPLATE
+    </div>
+  </div>
+</div>
+<!-- js -->
+<script src="assets/vendors/scripts/core.js"></script>
+<script src="assets/vendors/scripts/script.min.js"></script>
+<script src="assets/vendors/scripts/process.js"></script>
+<script src="assets/vendors/scripts/layout-settings.js"></script>
+<script src="assets/src/plugins/apexcharts/apexcharts.min.js"></script>
+<script src="assets/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="assets/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+<script src="assets/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+<script src="assets/vendors/scripts/dashboard.js"></script>

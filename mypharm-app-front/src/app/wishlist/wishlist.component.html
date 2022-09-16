@@ -1,0 +1,64 @@
+<!--<section class="page-header">
+  <div class="overly"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="content text-center">
+          <h1 class="mb-3">Cart</h1>
+          <p>Hath after appear tree great fruitful green dominion moveth sixth abundantly image that midst of god day multiply you’ll which</p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent justify-content-center">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Cart</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+<section class="cart shopping page-wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="product-list"  *ngIf="wishlist.items">
+          <form class="cart-form" >
+            <table class="table shop_table shop_table_responsive cart" cellspacing="0">
+              <thead>
+              <tr>
+                <th class="product-thumbnail"> </th>
+                <th class="product-name">Product</th>
+                <th class="product-price">Price</th>
+
+                <th class="product-remove"> </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="cart_item" *ngFor="let item of wishlist.items|keyvalue">
+                <td class="product-thumbnail" data-title="Thumbnail">
+                  <a routerLink="/product-single/{{item.value.id}}"><img src="{{this.catService.host+'/photoProduct/'+item.value.id}}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""></a>
+                </td>
+                <td class="product-name" data-title="Product">
+                  <a href="#">{{item.value.name}}</a>
+                </td>
+                <td class="product-price" data-title="Price">
+                                <span class="amount"><span class="currencySymbol"><pre wp-pre-tag-3=""></pre>
+</span>{{item.value.price}}</span>
+                </td>
+
+
+                <td class="product-remove"  data-title="Remove" id="mainFrameOneeee">
+                  <a style="cursor: pointer" (click)="this.onRemoveProductFromWishlist(item.value);this.onWishlist()" class="remove" aria-label="Remove this item" data-product_id="30" data-product_sku="">×</a>
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<div class="account section" style="padding-top: 20px">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="login-form border p-5">
+          <div class="text-center heading" style="margin-bottom: 20px">
+            <h2 class="mb-2">Login</h2>
+
+          </div>
+          <form #f="ngForm" (ngSubmit)="onLogin(f.value) ">
+            <div class="form-group mb-4">
+             <!-- <label for="username">Enter username</label>-->
+              <input  type="text" class="form-control" placeholder="Enter Email" ngModel="" name="email" required>
+            </div>
+            <div class="form-group">
+              <!--<label for="password">Enter Password</label>-->
+
+              <input  class="form-control" placeholder="Enter Password" ngModel="" type="password" name="password" required>
+              <a class="float-right" href="" style="color: green">Forget password?</a>
+            </div>
+            <button type="submit" class="btn btn-main mt-3 btn-block" style="margin-top: 60px!important; background: green;border:green">Login</button>
+            <p class="lead " style="display: flex;justify-content: space-between;margin-top: 8px;" >Don’t have an account? <a routerLink="/signup" style="color: green">Create an account</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

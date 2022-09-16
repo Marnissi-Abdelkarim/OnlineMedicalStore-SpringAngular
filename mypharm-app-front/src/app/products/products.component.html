@@ -1,0 +1,93 @@
+<section class="section products-main" style="padding-bottom: 10px">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center">
+          <h2>New Products</h2>
+         <!-- <p>Newest</p>-->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" *ngIf="newproducts">
+     <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let p of newproducts.slice(0, 8)" style="outline: 1px solid rgb(7,140,7,0.15);">
+        <div class="product">
+          <div class="product-wrap">
+            <a routerLink="/product-single/{{p.id}}"><img class="img-fluid w-100 mb-3 img-first" src="{{this.catalService.host+'/photoProduct/'+p.id}}" alt="product-img" /></a>
+            <a routerLink="/product-single/{{p.id}}"><img class="img-fluid w-100 mb-3 img-second" src="{{this.catalService.host+'/photoProduct/'+p.id}}" /></a>
+          </div>
+
+          <span class="onsale">Sale</span>
+          <div class="product-hover-overlay" style="bottom: 65px">
+            <a style="color: white"><i class="tf-ion-ios-heart"></i></a>
+            <form #f="ngForm"  (ngSubmit)="onAddProductToCaddy(p)">
+              <input type="number" hidden value="1" name="quantity" [(ngModel)]="p.quantity" ngModel>
+
+              <button class="hoverrr buttonsty" > <i class="tf-ion-android-cart"></i></button>
+
+            </form>
+
+          </div>
+
+          <div class="product-info">
+            <h2 class="product-title h5 mb-0"><a href="#">{{p.name //noinspection UnresolvedVariable}}</a></h2>
+            <span class="price">
+                     {{p.currentprice|number: '0.2' //noinspection UnresolvedVariable}}
+                  </span>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section products-main " style="padding-top: 0px">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center">
+          <h2>Best Sellers</h2>
+          <!-- <p>Newest</p>-->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" *ngIf="bestproducts">
+      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let p1 of bestproducts.slice(0, 8)" style="outline: 1px solid rgb(7,140,7,0.15);">
+        <div class="product">
+          <div class="product-wrap">
+            <a routerLink="/product-single/{{p1.id}}"><img class="img-fluid w-100 mb-3 img-first" src="{{this.catalService.host+'/photoProduct/'+p1.id}}" alt="product-img" /></a>
+            <a routerLink="/product-single/{{p1.id}}"><img class="img-fluid w-100 mb-3 img-second" src="{{this.catalService.host+'/photoProduct/'+p1.id}}" /></a>
+          </div>
+
+          <span class="onsale">Sale</span>
+          <div class="product-hover-overlay" style="bottom: 65px">
+            <a style="color: white"><i class="tf-ion-ios-heart"></i></a>
+            <form #f="ngForm"  (ngSubmit)="onAddProductToCaddy(p1)">
+              <input type="number" hidden value="1" name="quantity" [(ngModel)]="p1.quantity" ngModel>
+
+              <button class="hoverrr buttonsty" > <i class="tf-ion-android-cart"></i></button>
+
+            </form>
+
+          </div>
+
+          <div class="product-info">
+            <h2 class="product-title h5 mb-0"><a href="#">{{p1.name //noinspection UnresolvedVariable}}</a></h2>
+            <span class="price">
+                     {{p1.currentprice|number: '0.2' //noinspection UnresolvedVariable}}
+                  </span>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

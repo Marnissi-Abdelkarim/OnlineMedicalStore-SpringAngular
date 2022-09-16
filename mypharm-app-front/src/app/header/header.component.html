@@ -1,0 +1,121 @@
+
+<nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #25ab44!important;padding-top: .2rem;padding-bottom: .2rem;justify-content: end;" >
+
+  <div class="col-2" style="max-width: 13%" >
+    <select class="mydropy " (change)="ChangeLang ($any($event.target).value)">
+      <option value="en"  [selected]="lang=='en'">{{'English' | translate}}</option>
+      <option value="fr"  [selected]="lang=='fr'">{{'French' | translate}}</option>
+      <!--<option value="ar"  [selected]="lang=='ar'">Arabic</option>-->
+    </select>
+
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar" style="background-color: #f9f9f9!important;border-bottom: 1px solid rgb(0,0,0,0.03);justify-content: center">
+
+
+  <div class="container" style="margin-right: 0px;
+    margin-left: 0px;
+    max-width: 90%;">
+    <a class="navbar-brand font-weight-bold" routerLink="/">MyPharm</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+            aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="main-navbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">{{'Home' | translate}}   </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop/1/0">{{'Shop' | translate}}</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link clickable" (click)="onCart()">{{'Cart' | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link clickable" (click)="onWishList()">{{'Wishlist' | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link clickable"  (click)="onCnt()">{{'Contact Us' | translate}}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Navbar-collapse -->
+
+    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+      <li class="list-inline-item">
+        <a routerLink="/shop/1/0" class="search_toggle" id="search-icon"><i class="tf-ion-android-search"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a (click)="onWishList()" class="search_toggle" id="wishlist-icon"><i class="tf-ion-android-favorite"></i></a>
+      </li>
+
+      <li class="dropdown cart-nav dropdown-slide list-inline-item">
+        <a (click)="onCart()" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
+          <i class="tf-ion-android-cart"></i>
+        </a>
+       <!-- <div class="dropdown-menu cart-dropdown">
+          &lt;!&ndash; Cart Item &ndash;&gt;
+          <div class="media">
+            <a routerLink="/product-single">
+              <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
+            </a>
+            <div class="media-body">
+              <h6>Ladies Bag</h6>
+              <div class="cart-price">
+                <span>1 x</span>
+                <span>1250.00</span>
+              </div>
+            </div>
+            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+          </div>&lt;!&ndash; / Cart Item &ndash;&gt;
+
+          &lt;!&ndash; Cart Item &ndash;&gt;
+          <div class="media">
+            <a routerLink="/product-single">
+              <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
+            </a>
+            <div class="media-body">
+              <h6>Skinny Jeans</h6>
+              <div class="cart-price">
+                <span>1 x</span>
+                <span>1250.00</span>
+              </div>
+            </div>
+            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+          </div>&lt;!&ndash; / Cart Item &ndash;&gt;
+
+          <div class="cart-summary">
+            <span class="h6">Total</span>
+            <span class="total-price h6">$1799.00</span>
+
+            <div class="text-center cart-buttons mt-3">
+              <a routerLink="/cart" class="btn btn-small btn-transparent btn-block">View Cart</a>
+              <a routerLink="/checkout" class="btn btn-small btn-main btn-block">Checkout</a>
+            </div>
+          </div>
+        </div>-->
+      </li>
+      <li class="dropdown list-inline-item">
+          <a class=" dropdown-toggle " style="cursor: pointer"  id="dropdownMenuButton" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="tf-ion-ios-person mr-3"></i>
+          </a>
+          <div class="dropdown-menu" style="cursor: pointer" aria-labelledby="dropdownMenuButton">
+            <a *ngIf="!authService.isAuthenticated()" class="dropdown-item" routerLink="/login">Login</a>
+            <a *ngIf="!authService.isAuthenticated()" class="dropdown-item" routerLink="/signup">Sign Up</a>
+            <a *ngIf="authService.isAuthenticated()" class="dropdown-item" (click)="onLogout()">Logout</a>
+
+          </div>
+
+      </li>
+      <li class="list-inline-item" style="margin-right: -60px" *ngIf="authService.isAuthenticated()" >Hello, {{this.authService.userAuthenticatedName}}</li>
+    </ul>
+  </div>
+</nav>

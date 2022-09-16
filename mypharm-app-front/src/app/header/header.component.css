@@ -1,0 +1,13 @@
+.mydropy{
+  background-color: #25ab44;
+  border: none;
+  color: white;
+}
+.mydropy option{
+  background-color: white;
+  border: none;
+  color: black;
+}
+.clickable{
+  cursor: pointer;
+}
